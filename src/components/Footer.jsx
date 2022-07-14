@@ -7,6 +7,7 @@ import twitterIcon from "../assets/icon-twitter.svg";
 import pinterestIcon from "../assets/icon-pinterest.svg";
 
 const Footer = () => {
+  let key = 0;
   const links = ["About", "Services", "Projects"];
   const socialIcons = [
     { src: facebookIcon, alt: "facebook" },
@@ -20,12 +21,12 @@ const Footer = () => {
       <img src={logo} alt="logo" className="footer__logo" />
       <div className="footer__links">
         {links.map((link) => (
-          <Link text={link} />
+          <Link key={key++} text={link} />
         ))}
       </div>
       <div className="footer__social-icons">
         {socialIcons.map((icon) => (
-          <SocialIcon icon={icon} />
+          <SocialIcon key={key++} icon={icon} />
         ))}
       </div>
     </footer>

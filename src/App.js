@@ -16,6 +16,7 @@ import bottlesImgDesktop from "./assets/desktop/image-gallery-milkbottles.jpg";
 import orangeImgDesktop from "./assets/desktop/image-gallery-orange.jpg";
 import coneImgDesktop from "./assets/desktop/image-gallery-cone.jpg";
 import cubesImgDesktop from "./assets/desktop/image-gallery-sugarcubes.jpg";
+import "./css/style.css";
 
 const App = () => {
   let key = 0;
@@ -29,6 +30,7 @@ const App = () => {
         src: transformImgDesktop,
         alt: "egg",
       },
+      modifiers: "double-feature--reverse",
     },
     {
       type: "double",
@@ -110,6 +112,7 @@ const App = () => {
               heading={feature.heading}
               paragraph={feature.paragraph}
               img={feature.img}
+              modifiers={feature.modifiers}
             />
           );
         case "double":
@@ -119,6 +122,7 @@ const App = () => {
               heading={feature.heading}
               paragraph={feature.paragraph}
               img={feature.img}
+              modifiers={feature.modifiers}
             />
           );
         default:
@@ -133,8 +137,16 @@ const App = () => {
         <section className="intro">
           <Header />
           <h1 className="intro__heading">WE ARE CREATIVES</h1>
-          <img src={arrowDown} alt="arrow-down" className="intro__img" />
-          <img src={headerImg} alt="orange" className="intro__img" />
+          <img
+            src={arrowDown}
+            alt="arrow-down"
+            className="intro__img intro__img--regular"
+          />
+          <img
+            src={headerImg}
+            alt="orange"
+            className="intro__img intro__img--bg"
+          />
         </section>
         <section className="features">{renderFeatures(features)}</section>
         <section className="testimonials">
@@ -142,6 +154,7 @@ const App = () => {
           <div className="testimonials__container">
             {testimonials.map((testimonial) => (
               <Testimonial
+                key={key++}
                 img={testimonial.img}
                 paragraph={testimonial.paragraph}
                 name={testimonial.name}
@@ -152,7 +165,7 @@ const App = () => {
         </section>
         <section className="gallery">
           {galleryImgs.map((img) => (
-            <img src={img.src} alt={img.alt} />
+            <img src={img.src} alt={img.alt} className="gallery__img" />
           ))}
         </section>
         <Footer />
