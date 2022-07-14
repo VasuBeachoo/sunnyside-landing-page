@@ -1,8 +1,27 @@
 ///////////////////////////////////////
 // IMPORTS ////////////////////////////
 
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap");
+
 ///////////////////////////////////////
 // VARIABLES //////////////////////////
+
+$colors: (
+  Soft-red: hsl(7, 99%, 70%),
+  Yellow: hsl(51, 100%, 49%),
+  Dark-desaturated-cyan: hsl(167, 40%, 24%),
+  Dark-blue: hsl(198, 62%, 26%),
+  Dark-moderate-cyan: hsl(168, 34%, 41%),
+  Very-dark-desaturated-blue: hsl(212, 27%, 19%),
+  Very-dark-grayish-blue: hsl(213, 9%, 39%),
+  Dark-grayish-blue: hsl(232, 10%, 55%),
+  Grayish-blue: hsl(210, 4%, 67%),
+  White: hsl(0, 0%, 100%),
+  Light-desaturated-blue: hsl(198, 73%, 50%),
+);
+
+$heading-font: "Fraunces", serif;
+$body-font: "Barlow", sans-serif;
 
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
@@ -18,11 +37,66 @@
   width: 100%;
 }
 
+@mixin heading() {
+  font-family: $heading-font;
+}
+
+@mixin paragraph() {
+  font-family: $body-font;
+}
+
+@mixin link() {
+  user-select: none;
+  font-family: $body-font;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin btn() {
+  all: unset;
+  user-select: none;
+  font-family: $heading-font;
+  font-size: 1rem;
+  letter-spacing: 0.02rem;
+  border-radius: 2rem;
+  padding: 0.8rem 1.5rem;
+  transition: 0.25s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin feature() {
+  &__heading {
+    @include heading();
+  }
+
+  &__paragraph {
+    @include paragraph();
+  }
+
+  &__link {
+    @include link();
+  }
+}
+
 ///////////////////////////////////////
 // FUNCTIONS //////////////////////////
 
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
 ///////////////////////////////////////
 // STYLES /////////////////////////////
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -40,10 +114,24 @@ body {
 .intro {
   @include section();
   @include flex(column, flex-start, center);
+  position: relative;
+
+  &__heading {
+    @include heading();
+    position: absolute;
+    text-align: center;
+    top: 18.5%;
+    color: color(White);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 0.7rem;
+  }
 
   &__img {
     &--regular {
-      width: 5%;
+      position: absolute;
+      top: 44%;
+      width: 2.5%;
     }
 
     &--bg {
@@ -55,9 +143,44 @@ body {
 .header {
   @include section();
   @include flex(row, space-between, center);
+  position: absolute;
+  padding: 2rem 2.5rem;
+
+  &__logo {
+    width: 9.5rem;
+  }
 
   &__links {
     @include flex(row, space-between, center);
+    width: 26rem;
+  }
+}
+
+.link {
+  @include link();
+
+  &--header {
+    color: color(White);
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.button {
+  @include btn();
+
+  &--header {
+    background-color: color(White);
+    color: color(Very-dark-desaturated-blue);
+
+    &:hover {
+      background-color: color(Light-desaturated-blue);
+      color: color(White);
+    }
   }
 }
 
@@ -68,6 +191,7 @@ body {
 }
 
 .double-feature {
+  @include feature();
   @include flex(row, flex-start, flex-start);
   grid-area: auto / auto / auto / span 2;
 
@@ -91,12 +215,22 @@ body {
 }
 
 .single-feature {
+  @include feature();
   @include flex(column, flex-start, center);
   grid-area: auto / auto / auto / span 1;
+  position: relative;
   text-align: center;
 
   &__img {
     width: 100%;
+  }
+
+  &__heading {
+    position: absolute;
+  }
+
+  &__paragraph {
+    position: absolute;
   }
 }
 
@@ -112,6 +246,18 @@ body {
 .testimonial {
   @include flex(column, flex-start, center);
   text-align: center;
+
+  &__paragraph {
+    @include paragraph();
+  }
+
+  &__name {
+    @include heading();
+  }
+
+  &__title {
+    @include paragraph();
+  }
 }
 
 .gallery {

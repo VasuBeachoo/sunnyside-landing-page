@@ -28,10 +28,10 @@ const Header = () => {
     return links.map((link) => {
       switch (link.type) {
         case "link":
-          return <Link key={key++} className="header__link" text={link.text} />;
+          return <Link key={key++} modifiers="link--header" text={link.text} />;
         case "button":
           return (
-            <Button key={key++} className="header__btn" text={link.text} />
+            <Button key={key++} modifiers="button--header" text={link.text} />
           );
         default:
           return <></>;

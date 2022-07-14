@@ -165,7 +165,12 @@ const App = () => {
         </section>
         <section className="gallery">
           {galleryImgs.map((img) => (
-            <img src={img.src} alt={img.alt} className="gallery__img" />
+            <img
+              key={key++}
+              src={img.src}
+              alt={img.alt}
+              className="gallery__img"
+            />
           ))}
         </section>
         <Footer />
