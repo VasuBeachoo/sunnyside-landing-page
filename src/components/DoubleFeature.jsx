@@ -11,7 +11,7 @@ const DoubleFeature = ({ modifiers, heading, paragraph, img }) => {
       <div className="double-feature__text-container">
         <h2 className="double-feature__heading">{heading}</h2>
         <p className="double-feature__paragraph">{paragraph}</p>
-        <Link className="double-feature__link" text="LEARN MORE" />
+        <Link modifiers="link--feature" text="LEARN MORE" />
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ const App = () => {
         src: transformImgDesktop,
         alt: "egg",
       },
-      modifiers: "double-feature--reverse",
+      modifiers: "double-feature--reverse double-feature--yellow",
     },
     {
       type: "double",
@@ -41,16 +41,18 @@ const App = () => {
         src: standoutImgDesktop,
         alt: "pink-cup",
       },
+      modifiers: "double-feature--red",
     },
     {
       type: "single",
       heading: "Graphic design",
       paragraph:
-        "Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients; attention.",
+        "Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients' attention.",
       img: {
         src: designImgDesktop,
         alt: "cherry",
       },
+      modifiers: "single-feature--green",
     },
     {
       type: "single",
@@ -61,6 +63,7 @@ const App = () => {
         src: photographyImgDesktop,
         alt: "orange",
       },
+      modifiers: "single-feature--blue",
     },
   ];
   const testimonials = [

@@ -62,7 +62,7 @@ $body-font: "Barlow", sans-serif;
   font-size: 1rem;
   letter-spacing: 0.02rem;
   border-radius: 2rem;
-  padding: 0.8rem 1.5rem;
+  padding: 0.9rem 1.5rem;
   transition: 0.25s;
 
   &:hover {
@@ -73,6 +73,7 @@ $body-font: "Barlow", sans-serif;
 @mixin feature() {
   &__heading {
     @include heading();
+    font-weight: 900;
   }
 
   &__paragraph {
@@ -120,7 +121,7 @@ body {
     @include heading();
     position: absolute;
     text-align: center;
-    top: 18.5%;
+    top: 19%;
     color: color(White);
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 900;
@@ -144,7 +145,7 @@ body {
   @include section();
   @include flex(row, space-between, center);
   position: absolute;
-  padding: 2rem 2.5rem;
+  padding: 2.5rem;
 
   &__logo {
     width: 9.5rem;
@@ -162,10 +163,22 @@ body {
   &--header {
     color: color(White);
     font-size: 1rem;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.04rem;
 
     &:hover {
       opacity: 0.5;
+    }
+  }
+
+  &--feature {
+    font-family: $heading-font;
+    font-size: 0.95rem;
+    letter-spacing: 0.07rem;
+    text-decoration: underline dotted 0.25rem;
+    text-underline-offset: 0.15rem;
+
+    &:hover {
+      text-decoration-style: solid;
     }
   }
 }
@@ -198,19 +211,45 @@ body {
   &__img-container {
     @include flex(column, flex-start, center);
     width: 50%;
+    height: 100%;
   }
 
   &__img {
     width: 100%;
+    height: 100%;
   }
 
   &__text-container {
-    @include flex(column, flex-start, flex-start);
+    @include flex(column, center, flex-start);
     width: 50%;
+    height: 100%;
+    padding: 10vh 10vw;
+  }
+
+  &__heading {
+    font-size: clamp(2rem, 5vw, 2.4rem);
+    color: color(Very-dark-desaturated-blue);
+    margin: 0;
+  }
+
+  &__paragraph {
+    font-size: clamp(0.75rem, 5vw, 1rem);
+    color: color(Dark-grayish-blue);
+    letter-spacing: 0.02rem;
+    line-height: 1.75rem;
+    margin: 1.85rem 0 1rem;
   }
 
   &--reverse {
     flex-direction: row-reverse;
+  }
+
+  &--yellow * {
+    text-decoration-color: color(Yellow);
+  }
+
+  &--red * {
+    text-decoration-color: color(Soft-red);
   }
 }
 
@@ -227,10 +266,24 @@ body {
 
   &__heading {
     position: absolute;
+    top: 60.75%;
+    font-size: clamp(0.75rem, 5vw, 1.6rem);
   }
 
   &__paragraph {
     position: absolute;
+    top: 72%;
+    font-size: 1rem;
+    max-width: 40ch;
+    line-height: 1.8rem;
+  }
+
+  &--green * {
+    color: color(Dark-desaturated-cyan);
+  }
+
+  &--blue * {
+    color: color(Dark-blue);
   }
 }
 
