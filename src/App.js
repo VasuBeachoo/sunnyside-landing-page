@@ -153,7 +153,7 @@ const App = () => {
         </section>
         <section className="features">{renderFeatures(features)}</section>
         <section className="testimonials">
-          <h3 className="testimonials__heading">Client Testimonials</h3>
+          <h3 className="testimonials__heading">CLIENT TESTIMONIALS</h3>
           <div className="testimonials__container">
             {testimonials.map((testimonial) => (
               <Testimonial

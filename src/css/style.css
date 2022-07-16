@@ -220,6 +220,7 @@ body {
 
 .double-feature__paragraph {
   font-family: "Barlow", sans-serif;
+  line-height: 1.75rem;
 }
 
 .double-feature__link {
@@ -288,7 +289,6 @@ body {
   font-size: clamp(0.75rem, 5vw, 1rem);
   color: #818498;
   letter-spacing: 0.02rem;
-  line-height: 1.75rem;
   margin: 1.85rem 0 1rem;
 }
 
@@ -335,6 +335,7 @@ body {
 
 .single-feature__paragraph {
   font-family: "Barlow", sans-serif;
+  line-height: 1.75rem;
 }
 
 .single-feature__link {
@@ -357,13 +358,13 @@ body {
 
 .single-feature__heading {
   position: absolute;
-  top: 60.75%;
+  top: 59%;
   font-size: clamp(0.75rem, 5vw, 1.6rem);
 }
 
 .single-feature__paragraph {
   position: absolute;
-  top: 72%;
+  top: 70%;
   font-size: 1rem;
   max-width: 40ch;
   line-height: 1.8rem;
@@ -392,6 +393,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 6.5rem 5rem;
+}
+
+.testimonials__heading {
+  font-family: "Fraunces", serif;
+  color: #a7abae;
+  font-size: clamp(0.75rem, 5vw, 1.15rem);
+  letter-spacing: 0.35rem;
+  margin: 0.75rem 0 3.75rem 0;
 }
 
 .testimonials__container {
@@ -402,12 +412,14 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  gap: 5%;
+  width: 100%;
 }
 
 .testimonial {
@@ -427,16 +439,34 @@ body {
   text-align: center;
 }
 
+.testimonial__img {
+  width: 5vw;
+  border-radius: 100%;
+}
+
 .testimonial__paragraph {
   font-family: "Barlow", sans-serif;
+  line-height: 1.75rem;
+  color: #5a636c;
+  max-width: 35ch;
+  letter-spacing: 0.01rem;
+  margin: 2.5rem 0 1.85rem;
 }
 
 .testimonial__name {
   font-family: "Fraunces", serif;
+  color: #23303e;
+  margin: 1rem 0 0.2rem;
 }
 
 .testimonial__title {
   font-family: "Barlow", sans-serif;
+  line-height: 1.75rem;
+  color: #a7abae;
+  font-size: 0.95rem;
+  letter-spacing: 0.01rem;
+  opacity: 0.85;
+  margin: 0 0 1rem;
 }
 
 .gallery {

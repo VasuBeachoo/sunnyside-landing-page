@@ -43,6 +43,7 @@ $body-font: "Barlow", sans-serif;
 
 @mixin paragraph() {
   font-family: $body-font;
+  line-height: 1.75rem;
 }
 
 @mixin link() {
@@ -236,7 +237,6 @@ body {
     font-size: clamp(0.75rem, 5vw, 1rem);
     color: color(Dark-grayish-blue);
     letter-spacing: 0.02rem;
-    line-height: 1.75rem;
     margin: 1.85rem 0 1rem;
   }
 
@@ -266,13 +266,13 @@ body {
 
   &__heading {
     position: absolute;
-    top: 60.75%;
+    top: 59%;
     font-size: clamp(0.75rem, 5vw, 1.6rem);
   }
 
   &__paragraph {
     position: absolute;
-    top: 72%;
+    top: 70%;
     font-size: 1rem;
     max-width: 40ch;
     line-height: 1.8rem;
@@ -290,9 +290,20 @@ body {
 .testimonials {
   @include section();
   @include flex(column, flex-start, center);
+  padding: 6.5rem 5rem;
+
+  &__heading {
+    @include heading();
+    color: color(Grayish-blue);
+    font-size: clamp(0.75rem, 5vw, 1.15rem);
+    letter-spacing: 0.35rem;
+    margin: 0.75rem 0 3.75rem 0;
+  }
 
   &__container {
-    @include flex(row, space-between, flex-start);
+    @include flex(row, center, flex-start);
+    gap: 5%;
+    width: 100%;
   }
 }
 
@@ -300,16 +311,32 @@ body {
   @include flex(column, flex-start, center);
   text-align: center;
 
+  &__img {
+    width: 5vw;
+    border-radius: 100%;
+  }
+
   &__paragraph {
     @include paragraph();
+    color: color(Very-dark-grayish-blue);
+    max-width: 35ch;
+    letter-spacing: 0.01rem;
+    margin: 2.5rem 0 1.85rem;
   }
 
   &__name {
     @include heading();
+    color: color(Very-dark-desaturated-blue);
+    margin: 1rem 0 0.2rem;
   }
 
   &__title {
     @include paragraph();
+    color: color(Grayish-blue);
+    font-size: 0.95rem;
+    letter-spacing: 0.01rem;
+    opacity: 0.85;
+    margin: 0 0 1rem;
   }
 }
 
