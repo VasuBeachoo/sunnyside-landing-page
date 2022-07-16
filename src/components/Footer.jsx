@@ -21,12 +21,12 @@ const Footer = () => {
       <img src={logo} alt="logo" className="footer__logo" />
       <div className="footer__links">
         {links.map((link) => (
-          <Link key={key++} text={link} />
+          <Link key={key++} modifiers="link--footer" text={link} />
         ))}
       </div>
       <div className="footer__social-icons">
         {socialIcons.map((icon) => (
-          <SocialIcon key={key++} icon={icon} />
+          <SocialIcon key={key++} modifiers="social-icon--footer" icon={icon} />
         ))}
       </div>
     </footer>

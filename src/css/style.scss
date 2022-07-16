@@ -18,6 +18,7 @@ $colors: (
   Grayish-blue: hsl(210, 4%, 67%),
   White: hsl(0, 0%, 100%),
   Light-desaturated-blue: hsl(198, 73%, 50%),
+  Light-cyan: hsl(168, 54%, 64%),
 );
 
 $heading-font: "Fraunces", serif;
@@ -180,6 +181,15 @@ body {
 
     &:hover {
       text-decoration-style: solid;
+    }
+  }
+
+  &--footer {
+    color: color(Dark-moderate-cyan);
+    margin: 0;
+
+    &:hover {
+      color: color(White);
     }
   }
 }
@@ -352,12 +362,36 @@ body {
 .footer {
   @include section();
   @include flex(column, flex-start, center);
+  background-color: color(Light-cyan);
+  padding: 4rem 3rem 3.6rem;
+
+  &__logo {
+    width: 8.5rem;
+    filter: invert(36%) sepia(6%) saturate(2804%) hue-rotate(131deg)
+      brightness(92%) contrast(88%) brightness(0.675);
+  }
 
   &__links {
-    @include flex(row, space-between, center);
+    @include flex(row, center, center);
+    width: 100%;
+    gap: 3vw;
+    margin: 1.75rem 0 3.5rem;
   }
 
   &__social-icons {
-    @include flex(row, space-between, center);
+    @include flex(row, center, center);
+    width: 100%;
+    gap: 1.75vw;
+  }
+}
+
+.social-icon {
+  transition: 0.2s;
+
+  &--footer {
+    &:hover {
+      cursor: pointer;
+      filter: brightness(0) invert(1);
+    }
   }
 }
