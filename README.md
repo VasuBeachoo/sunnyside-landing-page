@@ -33,4 +33,4 @@ Users should be able to:
 - SCSS (using BEM methodology)
 - Flexbox
 - CSS Grid
-- Classnames NPM package
+- Classnames npm package
