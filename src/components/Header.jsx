@@ -1,8 +1,9 @@
 import Link from "./Link";
 import Button from "./Button";
 import logo from "../assets/logo.svg";
+import menuIcon from "../assets/icon-hamburger.svg";
 
-const Header = () => {
+const Header = ({ mobile, menu, setMenu }) => {
   let key = 0;
   const navLinks = [
     {
@@ -42,7 +43,17 @@ const Header = () => {
   return (
     <header className="header">
       <img src={logo} alt="logo" className="header__logo" />
-      <div className="header__links">{renderLinks(navLinks)}</div>
+      {(!mobile || menu) && (
+        <div className="header__links">{renderLinks(navLinks)}</div>
+      )}
+      {mobile && (
+        <img
+          src={menuIcon}
+          alt="menu-icon"
+          className="header__menu-icon"
+          onClick={() => setMenu(!menu)}
+        />
+      )}
     </header>
   );
 };

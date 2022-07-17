@@ -157,6 +157,14 @@ body {
     @include flex(row, space-between, center);
     width: 26rem;
   }
+
+  &__menu-icon {
+    transition: 0.2s;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .link {
@@ -304,9 +312,11 @@ body {
 
   &__heading {
     @include heading();
+    text-align: center;
     color: color(Grayish-blue);
     font-size: clamp(0.75rem, 5vw, 1.15rem);
     letter-spacing: 0.35rem;
+    line-height: 1.75rem;
     margin: 0.75rem 0 3.75rem 0;
   }
 
@@ -355,6 +365,7 @@ body {
   grid-template: auto / repeat(4, 1fr);
 
   &__img {
+    grid-area: auto / auto / span 1 / span 1;
     max-width: 100%;
   }
 }
@@ -363,7 +374,7 @@ body {
   @include section();
   @include flex(column, flex-start, center);
   background-color: color(Light-cyan);
-  padding: 4rem 3rem 3.6rem;
+  padding: 4rem 3rem 3.5rem;
 
   &__logo {
     width: 8.5rem;
@@ -393,5 +404,107 @@ body {
       cursor: pointer;
       filter: brightness(0) invert(1);
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .intro {
+    &__img {
+      &--regular {
+        width: 10vw;
+      }
+    }
+  }
+
+  .header {
+    &__links {
+      @include flex(column, flex-start, center);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 90%;
+      background-color: color(White);
+      gap: 1.5rem;
+      padding: 2.25rem;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 1;
+    }
+  }
+
+  .link {
+    &--header {
+      color: color(Grayish-blue);
+      margin: 0;
+
+      &:hover {
+        color: color(Very-dark-grayish-blue);
+        opacity: 1;
+      }
+    }
+  }
+
+  .button {
+    &--header {
+      background-color: color(Yellow);
+      color: color(Very-dark-desaturated-blue);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    &__heading {
+      width: 90%;
+      line-height: 3rem;
+    }
+  }
+
+  .double-feature {
+    @include flex(column, flex-start, center);
+
+    &__img-container {
+      width: 100%;
+    }
+
+    &__text-container {
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .single-feature {
+    grid-area: auto / auto / auto / span 2;
+
+    &__paragraph {
+      font-size: 1.25rem;
+      line-height: 2.5rem;
+      width: 90%;
+    }
+  }
+
+  .testimonials {
+    padding: 3.5rem;
+
+    &__container {
+      @include flex(column, flex-start, center);
+      gap: 10vh;
+    }
+  }
+
+  .testimonial {
+    &__img {
+      width: 10vw;
+    }
+
+    &__paragraph {
+      margin: 1.75rem 0 0.75rem;
+    }
+  }
+
+  .gallery {
+    grid-template: auto / repeat(2, 1fr);
   }
 }
